@@ -1,0 +1,31 @@
+name: ROS Foxy CI
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  DEBIAN_FRONTEND: noninteractive
+
+jobs:
+  build_and_test:
+    name: Build and test
+    runs-on: ubuntu-latest
+    container: ubuntu:20.04
+    env:
+      ROS_DISTRO: foxy
+    steps:
+    - uses: actions/checkout@v2
+    - uses: ros-tooling/setup-ros@v0.2
+      with:
+        required-ros-distributions: ${{ env.ROS_DISTRO }}
+    - uses: ros-tooling/action-ros-ci@v0.2
+      with:
+        package-name: noah_description noah_gazebo
+        target-ros2-distro: ${{ env.ROS_DISTRO }}
+        # This token is required to clone this *private* repository. If other
+        # private repositories are required, you will require a specific
+        # shared secret. Otherwise, it is not required. See
+        # https://github.com/ros-tooling/action-ros-ci
+        import-token: ${{ secrets.GITHUB_TOKEN }}
