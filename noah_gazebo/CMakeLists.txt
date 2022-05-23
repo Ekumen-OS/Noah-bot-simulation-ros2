@@ -15,6 +15,7 @@ install(
   DIRECTORY
     launch
     models
+    photos
     rviz
     worlds
   DESTINATION

@@ -24,7 +24,7 @@ Organization of the packages.
 
 ### noah_gazebo:
  - Run gazebo simulation
-   - World can be selected between `city.world` and `empty.world`.
+   - World can be selected between `small_house.world` and `empty.world`.
  - Include `noah_description`'s launch file.
  - Spawn noah into gazebo.
  - Run rviz2 (optional)
@@ -40,7 +40,7 @@ ros2 launch noah_gazebo noah_gazebo.launch.py
 Use a different world!
 
 ```sh
-ros2 launch noah_gazebo noah_gazebo.launch.py world:=city.world
+ros2 launch noah_gazebo noah_gazebo.launch.py world:=small_house.world
 ```
 
 Run rviz!
