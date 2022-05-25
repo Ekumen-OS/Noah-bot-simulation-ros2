@@ -2,10 +2,11 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>noah_description</name>
-  <version>0.0.0</version>
+  <version>0.1.0</version>
   <description>NoahBot robot description</description>
-  <maintainer email="franco.c@ekumenlabs.com">franco</maintainer>
-  <license>../LICENSE</license>
+  <author email="franco.c@ekumenlabs.com">Franco Cipollone</author>
+  <maintainer email="franco.c@ekumenlabs.com">Franco Cipollone</maintainer>
+  <license file="../LICENSE"> BSD Clause 3</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

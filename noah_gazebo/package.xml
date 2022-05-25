@@ -2,12 +2,13 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>noah_gazebo</name>
-  <version>0.0.0</version>
+  <version>0.1.0</version>
   <description>
     Launch Gazebo simulation with Noah robot.
   </description>
+  <author email="franco.c@ekumenlabs.com">Franco Cipollone</author>
   <maintainer email="franco.c@ekumenlabs.com">Franco Cipollone</maintainer>
-  <license>../LICENSE</license>
+  <license file="../LICENSE"> BSD Clause 3</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
 

@@ -24,8 +24,10 @@ def generate_launch_description():
                           description='Open RViz.')
     world_argument = DeclareLaunchArgument(
           'world',
-          default_value='empty.world',
+          default_value='test.world',
           description='SDF world file name')
+    verbose_argument = DeclareLaunchArgument('verbose', default_value='false',
+                          description='Open Gazebo in verbose mode.')
 
     # Includes gazebo_ros launch for gazebo
     include_gazebo = IncludeLaunchDescription(
@@ -34,7 +36,7 @@ def generate_launch_description():
         ),
           launch_arguments = {
               'world': LaunchConfiguration('world'), # It is looking relative at GAZEBO_RESOURCE_PATH.
-              'verbose': 'true',
+              'verbose': LaunchConfiguration('verbose'),
           }.items()
     )
 
@@ -73,6 +75,7 @@ def generate_launch_description():
     return LaunchDescription([
         rviz_argument,
         world_argument,
+        verbose_argument,
         rviz,
         include_noah_description,
         include_gazebo,
