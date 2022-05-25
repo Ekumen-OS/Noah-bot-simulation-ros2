@@ -2,10 +2,12 @@
 
 ## Overview
 
-Gazebo simulation of the Noah-bot robot.
+Gazebo simulation for the Noah-bot robot.
 
 ![noah-ros2](https://user-images.githubusercontent.com/53065142/170271725-93a1ae05-21e9-4c5c-8fef-5824da3ca23e.png)
 
+### URDF
+It contains the URDF model of the robot with accurate visual meshes.
 ### Sensors
  - Kinect Camera. Ros topics:
     - /noah/kinect/camera_info
@@ -83,9 +85,9 @@ _Note: Are you looking for the ROS1 simulation? See [here](https://github.com/Ek
     ```
 6. It is ready to be used!. See [Run Simulation](README.md#run-simulation)!
 
-## Organization
+## Repository organization
 
-Summary of of the packages.
+Summary of of the packages in the repository.
 ### noah_description:
  - Holds Noah xacro files for URDF definition.
  - Simple launch file for:
