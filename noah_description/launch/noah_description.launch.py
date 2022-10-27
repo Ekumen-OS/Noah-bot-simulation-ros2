@@ -20,6 +20,8 @@ def generate_launch_description():
                           description='Run robot state publisher node.')
     jsp_argument = DeclareLaunchArgument('jsp', default_value='true',
                           description='Run joint state publisher node.')
+    ign_argument = DeclareLaunchArgument('ign', default_value='false',
+                          description='For ignition gazebo sim.')
 
     # Obtains noah_description's share directory path.
     pkg_noah_description = get_package_share_directory('noah_description')

@@ -52,7 +52,7 @@
 
 	<gazebo>
     <!-- For ros2 we use gazebo_ros_joint_state_publisher instead of publishWheelJointState -->
-    <plugin name="joint_states" filename="libgazebo_ros_joint_state_publisher.so">
+    <!-- <plugin name="joint_states" filename="libgazebo_ros_joint_state_publisher.so">
       <joint_name>right_wheel_joint</joint_name>
       <joint_name>left_wheel_joint</joint_name>
     </plugin>
@@ -61,24 +61,17 @@
 
       <ros>
         <namespace>/noah</namespace>
-        <!-- For the topics being published we would remap doing: -->
-        <!-- <argument>cmd_vel:=cmd_demo</argument> -->
-        <!-- <argument>odom:=odom_demo</argument> -->
       </ros>
 
-      <!-- wheels -->
       <left_joint>left_wheel_joint</left_joint>
       <right_joint>right_wheel_joint</right_joint>
 
-      <!-- kinematics -->
       <wheel_separation>1.25</wheel_separation>
       <wheel_diameter>0.3</wheel_diameter>
 
-      <!-- limits -->
       <max_wheel_torque>20</max_wheel_torque>
       <max_wheel_acceleration>1.0</max_wheel_acceleration>
 
-      <!-- output -->
 			<update_rate>20</update_rate>
       <publish_odom>true</publish_odom>
       <publish_odom_tf>true</publish_odom_tf>
@@ -90,7 +83,7 @@
       <publish_wheel_tf>true</publish_wheel_tf>
 			<torque>20</torque>
 
-		</plugin>
+		</plugin> -->
 	</gazebo>
 
 </robot>
