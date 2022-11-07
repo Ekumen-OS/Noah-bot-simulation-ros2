@@ -1,4 +1,4 @@
-name: ROS Foxy CI
+name: ROS Humble CI
 
 on:
   push:
@@ -12,9 +12,9 @@ jobs:
   build_and_test:
     name: Build and test
     runs-on: ubuntu-latest
-    container: ubuntu:20.04
+    container: ubuntu:22.04
     env:
-      ROS_DISTRO: foxy
+      ROS_DISTRO: humble
     steps:
     - uses: actions/checkout@v2
     - uses: ros-tooling/setup-ros@v0.2
