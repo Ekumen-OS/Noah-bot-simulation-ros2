@@ -25,7 +25,7 @@ It contains the URDF model of the robot with accurate visual meshes.
 
 ## Official supported platform:
  - Ubuntu version: Focal Fossa 20.04
- - ROS Version: Foxy Fitzroy
+ - ROS Version: Humble
  - Gazebo version: 11
 
 _Note: Are you looking for the ROS1 simulation? See [here](https://github.com/Ekumen-OS/Noah-bot-simulation)._
@@ -59,8 +59,8 @@ _Note: Are you looking for the ROS1 simulation? See [here](https://github.com/Ek
 7. It is ready to be used!. See [Run Simulation]
 8. If more terminals are needed to be opened, in a new terminal run:
     ```sh
-    docker exec -it noah_docker_ros2_process bash
-    source /opt/ros/foxy/setup.bash
+    docker exec -it noah_docker_humble_process bash
+    source /opt/ros/humble/setup.bash
     source /home/colcon_ws/install/setup.bash
     # If running gazebo simulation here:
     source /usr/share/gazebo/setup.bash
@@ -68,7 +68,7 @@ _Note: Are you looking for the ROS1 simulation? See [here](https://github.com/Ek
 
 ## Non-containerized Installation
 
-1. [Install ROS Foxy Fitzroy](https://docs.ros.org/en/foxy/Installation.html)
+1. [Install ROS Humble](https://docs.ros.org/en/humble/Installation.html)
 2. [Install Gazebo 11](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)
 3. Clone this repository in your `colcon` workspace.
     ```
