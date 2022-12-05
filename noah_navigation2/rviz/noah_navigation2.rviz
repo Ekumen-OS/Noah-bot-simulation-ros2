@@ -155,9 +155,9 @@ Visualization Manager:
       Frame Timeout: 15
       Frames:
         All Enabled: true
-        base_footprint:
+        base_generic_link:
           Value: true
-        base_link:
+        front_link:
           Value: true
         base_scan:
           Value: true
@@ -167,9 +167,9 @@ Visualization Manager:
           Value: true
         odom:
           Value: true
-        wheel_left_link:
+        left_wheel_link:
           Value: true
-        wheel_right_link:
+        right_wheel_link:
           Value: true
       Marker Scale: 1
       Name: TF
@@ -178,17 +178,17 @@ Visualization Manager:
       Show Names: true
       Tree:
         odom:
-          base_footprint:
-            base_link:
+          base_generic_link:
+            front_link:
               base_scan:
                 {}
               caster_back_link:
                 {}
               imu_link:
                 {}
-              wheel_left_link:
+              left_wheel_link:
                 {}
-              wheel_right_link:
+              right_wheel_link:
                 {}
       Update Interval: 0
       Value: true
@@ -233,7 +233,7 @@ Visualization Manager:
   Enabled: true
   Global Options:
     Background Color: 48; 48; 48
-    Fixed Frame: odom
+    Fixed Frame: base_generic_link
     Frame Rate: 30
   Name: root
   Tools:

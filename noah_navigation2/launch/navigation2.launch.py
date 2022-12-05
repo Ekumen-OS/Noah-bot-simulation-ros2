@@ -34,7 +34,7 @@ def generate_launch_description():
         default=os.path.join(
             get_package_share_directory('noah_navigation2'),
             'map',
-            'map.yaml'))
+            'rtabmap.yaml'))
 
     param_file_name = NOAH_MODEL + '.yaml'
     param_dir = LaunchConfiguration(

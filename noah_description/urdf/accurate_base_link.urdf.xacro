@@ -393,6 +393,14 @@
 			<material>Gazebo/Blue</material>
 		</gazebo>
 
+		<joint name="imu_joint" type="fixed">
+			<parent link="front_link"/>
+			<child link="imu_link"/>
+			<origin xyz="0.0 0 0.068" rpy="0 0 0"/>
+		</joint>
+
+		<link name="imu_link"/>
+
 
 	</xacro:macro>
 </robot>

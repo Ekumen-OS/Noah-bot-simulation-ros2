@@ -23,7 +23,7 @@ def generate_launch_description():
                           description='Open RViz.')
     world_argument = DeclareLaunchArgument(
           'world',
-          default_value='test.world',
+          default_value='small_house.world',
           description='SDF world file name')
     verbose_argument = DeclareLaunchArgument('verbose', default_value='false',
                           description='Open Gazebo in verbose mode.')
