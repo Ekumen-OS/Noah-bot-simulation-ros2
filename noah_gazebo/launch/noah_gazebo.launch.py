@@ -62,7 +62,7 @@ def generate_launch_description():
         package='gazebo_ros',
         executable='spawn_entity.py',
         name='spawn_noah',
-        arguments=['-topic', 'noah/robot_description', '-entity', 'noah', '-z', '0.1'],
+        arguments=['-topic', 'robot_description', '-entity', 'noah', '-z', '0.1'],
     )
 
     # RViz

@@ -101,9 +101,9 @@
           </clip>
         </camera>
         <plugin name="kinect_plugin" filename="libgazebo_ros_camera.so">
-          <ros>
+          <!-- <ros>
             <namespace>noah</namespace>
-          </ros>
+          </ros> -->
 
           <!-- Set TF frame name. If empty, defaults to link name (i.e. "link_name") -->
           <frame_name>kinect_gazebo</frame_name>
@@ -146,10 +146,10 @@
           </noise>
         </ray>
         <plugin name="laser" filename="libgazebo_ros_ray_sensor.so">
-          <ros>
+          <!-- <ros>
             <namespace>/noah</namespace>
             <remapping>~/out:=laser_scan</remapping>
-          </ros>
+          </ros> -->
           <output_type>sensor_msgs/LaserScan</output_type>
         </plugin>
       </sensor>

@@ -33,7 +33,7 @@ def generate_launch_description():
     # Robot state publisher
     rsp = Node(package='robot_state_publisher',
                 executable='robot_state_publisher',
-                namespace='noah',
+                # namespace='noah',
                 output='both',
                 parameters=[params],
                 condition=IfCondition(LaunchConfiguration('rsp'))
@@ -42,7 +42,7 @@ def generate_launch_description():
     jsp = Node(
         package='joint_state_publisher',
         executable='joint_state_publisher',
-        namespace='noah',
+        # namespace='noah',
         name='joint_state_publisher',
         condition=IfCondition(LaunchConfiguration('jsp'))
     )
