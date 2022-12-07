@@ -26,10 +26,9 @@ from launch_ros.actions import Node
 
 
 def generate_launch_description():
-    TURTLEBOT3_MODEL = noah
 
     use_sim_time = LaunchConfiguration('use_sim_time', default='false')
-    urdf_file_name = 'noah_' + TURTLEBOT3_MODEL + '.urdf'
+    urdf_file_name = 'accurate_base_link.urdf.xacro'
 
     print("urdf_file_name : {}".format(urdf_file_name))
 

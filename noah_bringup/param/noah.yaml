@@ -31,4 +31,4 @@ diff_drive_controller:
       publish_tf: true
       use_imu: true
       frame_id: "odom"
-      child_frame_id: "base_footprint"
+      child_frame_id: "base_generic_link"
