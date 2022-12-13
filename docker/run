@@ -1,16 +1,12 @@
 #!/bin/bash
-
-ABSDIR=$(dirname $(readlink -f $0))
-
-SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-REPO_DIR=`readlink -f ${SCRIPTS_DIR}/../`
-DOCKER_MOUNT_ARGS="-v ${REPO_DIR}/:/home/colcon_ws/src"
+# Runs the provided command in a docker container with Noah simulation code and dependencies.
 
 xhost +local:root
-docker run -it -e DISPLAY -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
-	${DOCKER_MOUNT_ARGS} \
-	-e "TERM=xterm-256color" \
-	--net=host \
+docker run --rm -it \
+	--name noah_docker_ros2_run \
 	--gpus all \
-    --name noah_docker_ros2_process \
-	--privileged --rm docker_foxy_noahbot /bin/bash
+	-e "TERM=xterm-256color" \
+    -e DISPLAY \
+	-v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+	noahbot:foxy \
+	$@
