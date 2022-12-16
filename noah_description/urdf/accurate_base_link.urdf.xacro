@@ -12,6 +12,20 @@
 
 		<!-- BASE************************************************************************** -->
 
+        <link name="base_footprint">			
+            <!--
+            Dummy inertia-less link to prevent the following error:
+            [robot_state_publisher-1] The root link base_generic_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.
+            As a workaround, you can add an extra dummy link to your URDF.
+            -->
+        </link>
+
+        <joint name="base_frootprint_joint" type="fixed">
+            <parent link="base_footprint" />
+            <child link="base_generic_link" />
+            <origin xyz="0 0 0" rpy="0 0 0" />
+        </joint>
+
 		<xacro:property name="base_generic_depth" value="0.19"/>
 		<xacro:property name="base_generic_width" value="0.135"/>
 		<xacro:property name="base_generic_heigth" value="0.003"/>
