@@ -1,5 +1,0 @@
-FROM osrf/ros:foxy-desktop
-
-RUN apt-get update
-
-CMD ["/bin/echo", ""]
