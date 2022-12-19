@@ -1,0 +1,17 @@
+#!/bin/bash
+# Opens a shell in the Noah simulation container, with the local copy of the
+# code mounted. It uses --net host, to allow for multiple containers to share
+# ROS messages easily.
+
+SCRIPTS_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
+REPO_DIR=`readlink -f ${SCRIPTS_DIR}/../`
+DOCKER_MOUNT_ARGS="-v ${REPO_DIR}/:/colcon_ws/src"
+
+xhost +local:root
+
+docker run -it -e DISPLAY -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+	${DOCKER_MOUNT_ARGS} \
+	--net=host \
+	--gpus all \
+    --name noah_docker_ros2_devel \
+    --rm noahbot:foxy /bin/bash
