@@ -4,6 +4,7 @@ ARG COLCON_WS=/colcon_ws
 
 COPY noah_description ${COLCON_WS}/src/noah_description
 COPY noah_gazebo ${COLCON_WS}/src/noah_gazebo
+COPY noah_integration_tests ${COLCON_WS}/src/noah_integration_tests
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
     . /opt/ros/humble/setup.sh && \
@@ -13,5 +14,5 @@ RUN apt-get update && \
 
 COPY docker/entrypoint.bash entrypoint.bash
 ENTRYPOINT [ "/entrypoint.bash" ]
-
+WORKDIR ${COLCON_WS}
 CMD ["/bin/bash"]
