@@ -111,7 +111,7 @@ you can easily send ROS messages across them.
     source install/setup.bash
     source /usr/share/gazebo/setup.bash
     ```
-6. It is ready to be used!. See [Run Simulation](README.md#run-simulation)!
+6. It is ready to be used! See [Run Simulation](README.md#run-simulation)!
 
 
 ### Run Simulation!
@@ -130,6 +130,11 @@ Use the `rviz` argument and run `rviz2` along the simulation!
 
 ```sh
 ros2 launch noah_gazebo noah_gazebo.launch.py rviz:=true
+```
+
+You can also start the simulation without the Gazebo GUI when you don't have a display (like in CI):
+```sh
+ros2 launch noah_gazebo noah_gazebo.launch.py gazebo_gui:=false
 ```
 
 Try Teleoperating Noah!
