@@ -24,7 +24,7 @@ It contains the URDF model of the robot with accurate visual meshes.
  - /noah/cmd_vel
 
 ## Officially supported platform:
- - Ubuntu version: Focal Fossa 20.04
+ - Ubuntu version: Jammy Jellyfish (22.04)
  - ROS Version: Humble
  - Gazebo version: 11
 
