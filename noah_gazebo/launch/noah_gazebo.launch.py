@@ -8,7 +8,7 @@ from launch.actions import IncludeLaunchDescription
 from launch.conditions import IfCondition
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
-from launch.substitutions import PathJoinSubstitution, TextSubstitution
+from launch.substitutions import PathJoinSubstitution
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
 
@@ -18,7 +18,6 @@ pkg_noah_description = get_package_share_directory('noah_description')
 pkg_noah_gazebo = get_package_share_directory('noah_gazebo')
 
 def generate_launch_description():
-
     # Arguments
     rviz_argument = DeclareLaunchArgument('rviz', default_value='false',
                           description='Open RViz.')
@@ -28,6 +27,7 @@ def generate_launch_description():
           description='SDF world file name')
     verbose_argument = DeclareLaunchArgument('verbose', default_value='false',
                           description='Open Gazebo in verbose mode.')
+    gazebo_gui = DeclareLaunchArgument('gazebo_gui', default_value='true', description='Open Gazebo GUI.')
 
     # Includes gazebo_ros launch for gazebo
     include_gazebo = IncludeLaunchDescription(
@@ -37,6 +37,7 @@ def generate_launch_description():
           launch_arguments = {
               'world': LaunchConfiguration('world'), # It is looking relative at GAZEBO_RESOURCE_PATH.
               'verbose': LaunchConfiguration('verbose'),
+              'gui': LaunchConfiguration('gazebo_gui'),
           }.items()
     )
 
@@ -76,6 +77,7 @@ def generate_launch_description():
         rviz_argument,
         world_argument,
         verbose_argument,
+        gazebo_gui,
         rviz,
         include_noah_description,
         include_gazebo,

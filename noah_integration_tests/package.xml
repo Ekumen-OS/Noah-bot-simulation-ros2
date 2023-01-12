@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+    <name>noah_integration_tests</name>
+    <version>0.1.0</version>
+    <description> Collections of simulation based integration tests for
+        noah. </description>
+    <author email="lucas@gethen.io">Lucas Chiesa</author>
+    <maintainer email="lucas@gethen.io">Lucas Chiesa</maintainer>
+    <license file="../LICENSE">
+        BSD Clause 3</license>
+
+    <buildtool_depend>ament_cmake</buildtool_depend>
+
+    <exec_depend>noah_gazebo</exec_depend>
+    <exec_depend>noah_description</exec_depend>
+    <exec_depend>ros2launch</exec_depend>
+
+    <test_depend>ament_cmake_gtest</test_depend>
+    <test_depend>nav_msgs</test_depend>
+    <test_depend>rclcpp</test_depend>
+    <test_depend>ros_testing</test_depend>
+
+    <export>
+        <build_type>ament_cmake</build_type>
+    </export>
+</package>
