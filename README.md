@@ -23,67 +23,13 @@ It contains the URDF model of the robot with accurate visual meshes.
  - /noah/odom
  - /noah/cmd_vel
 
-## Official supported platform:
- - Ubuntu version: Focal Fossa 20.04
+## Officially supported platform:
+ - Ubuntu version: Jammy Jellyfish (22.04)
  - ROS Version: Humble
  - Gazebo version: 11
 
 _Note: Are you looking for the ROS1 simulation? See [here](https://github.com/Ekumen-OS/Noah-bot-simulation)._
 
-
-## Installation using a Docker container
-
-1. [Install docker](https://docs.docker.com/engine/install/ubuntu/)
-2. Clone this repository.
-3. Build the docker image.
-   ```sh
-   ./Noah-bot-simulation-ros2/docker/build
-   ```
-4. Run the script to run the docker container and mount the project. **IMPORTANT**: If the user does not own an nvidia gpu, delete the "--gpus all \" line from the script.
-   ```sh
-   ./Noah-bot-simulation-ros2/docker/run
-   ```
-5. Download dependencies for the packages
-    ```sh
-    cd /home/colcon_ws
-    sudo apt-get update
-    rosdep install --from-paths src --ignore-src -r -y
-    ```
-6. Build the project and source the workspace
-    ```sh
-    cd /home/colcon_ws
-    colcon build
-    source install/setup.bash
-    source /usr/share/gazebo/setup.bash
-    ```
-7. It is ready to be used!. See [Run Simulation]
-8. If more terminals are needed to be opened, in a new terminal run:
-    ```sh
-    docker exec -it noah_docker_humble_process bash
-    source /opt/ros/humble/setup.bash
-    source /home/colcon_ws/install/setup.bash
-    # If running gazebo simulation here:
-    source /usr/share/gazebo/setup.bash
-    ```
-
-## Non-containerized Installation
-
-1. [Install ROS Humble](https://docs.ros.org/en/humble/Installation.html)
-2. [Install Gazebo 11](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)
-3. Clone this repository in your `colcon` workspace.
-    ```
-    ├── colcon_ws
-        └── src
-            └── Noah-bot-simulation-ros2
-    ```
-4. `rosdep install --from-paths src --ignore-src -r -y`
-5. Build the project and source the workspace
-    ```sh
-    colcon build
-    source install/setup.bash
-    source /usr/share/gazebo/setup.bash
-    ```
-6. It is ready to be used!. See [Run Simulation](README.md#run-simulation)!
 
 ## Repository organization
 
@@ -106,7 +52,69 @@ Summary of of the packages in the repository.
    - Spawn Noah
    - Run rviz2 (optional)
 
-## Run Simulation!
+
+## Using docker
+
+### Building the code
+
+1. [Install docker](https://docs.docker.com/engine/install/ubuntu/)
+2. If using nvidia, install [nvidia-docker](https://github.com/NVIDIA/nvidia-docker)
+3. Clone this repository.
+4. Build the docker image running:
+   ```sh
+   DOCKER_BUILDKIT=1 docker build -t noahbot:humble -f docker/Dockerfile .
+   ```
+   After this, the image tagged as `noahbot:humble` will be ready to run the Noahbot simulation.
+
+### Running the simulation
+
+Run:
+```sh
+./docker/run ros2 launch noah_gazebo noah_gazebo.launch.py
+```
+To start the simulation.
+**IMPORTANT**: If you do not want to use the host GPUs, delete the "--gpus all \" line from the script.
+
+### Quickly test changes without rebuilding the container
+
+If you want to test code changes quickly without rebuilding the container, you can use the `develop` script:
+
+```sh
+$ ./docker/develop
+```
+
+Which will open a shell inside the container, mounting the local copy of the ROS packages.
+You can quickly re-build the code with:
+
+```sh
+$ cd /colcon_ws
+$ colcon build
+```
+
+The `develop` script will also run the containers with host networking, so if you open multiple ones
+you can easily send ROS messages across them.
+
+## Non-containerized Installation
+
+1. [Install ROS humble Fitzroy](https://docs.ros.org/en/humble/Installation.html)
+2. [Install Gazebo 11](https://classic.gazebosim.org/tutorials?tut=install_ubuntu)
+3. Clone this repository in your `colcon` workspace.
+    ```
+    ├── colcon_ws
+        └── src
+            └── Noah-bot-simulation-ros2
+    ```
+4. `rosdep install --from-paths src --ignore-src -r -y`
+5. Build the project and source the workspace
+    ```sh
+    colcon build
+    source install/setup.bash
+    source /usr/share/gazebo/setup.bash
+    ```
+6. It is ready to be used!. See [Run Simulation](README.md#run-simulation)!
+
+
+### Run Simulation!
 
 ```sh
 ros2 launch noah_gazebo noah_gazebo.launch.py
