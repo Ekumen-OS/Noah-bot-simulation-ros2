@@ -14,4 +14,4 @@ docker run -it -e DISPLAY -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 	--net=host \
 	--gpus all \
     --name noah_docker_ros2_devel \
-    --rm noahbot:foxy /bin/bash
+    --rm noahbot:humble /bin/bash
