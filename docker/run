@@ -6,7 +6,7 @@ docker run --rm -it \
 	--name noah_docker_ros2_run \
 	--gpus all \
 	-e "TERM=xterm-256color" \
-    -e DISPLAY \
+	-e DISPLAY \
 	-v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
 	noahbot:humble \
 	$@
