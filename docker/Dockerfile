@@ -10,7 +10,11 @@ RUN apt-get update && \
     . /opt/ros/humble/setup.sh && \
     rosdep update && \
     rosdep install --from-paths ${COLCON_WS}/src --ignore-src -r -y && \
-    colcon build --base-paths ${COLCON_WS}/src/ --build-base ${COLCON_WS}/build --install-base ${COLCON_WS}/install
+    colcon build --base-paths ${COLCON_WS}/src/ --build-base ${COLCON_WS}/build --install-base ${COLCON_WS}/install && \
+    rm -rf /var/lib/apt/lists/*
+
+# Env vars for the nvidia-container-runtime.
+ENV NVIDIA_DRIVER_CAPABILITIES graphics,utility,compute
 
 COPY docker/entrypoint.bash entrypoint.bash
 ENTRYPOINT [ "/entrypoint.bash" ]
