@@ -12,7 +12,7 @@
 
 		<!-- BASE************************************************************************** -->
 
-        <link name="base_footprint">			
+        <link name="base_footprint">
             <!--
             Dummy inertia-less link to prevent the following error:
             [robot_state_publisher-1] The root link base_generic_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.
@@ -392,15 +392,5 @@
 		<gazebo reference="electronics_link">
 			<material>Gazebo/Blue</material>
 		</gazebo>
-
-		<joint name="imu_joint" type="fixed">
-			<parent link="front_link"/>
-			<child link="imu_link"/>
-			<origin xyz="0.0 0 0.068" rpy="0 0 0"/>
-		</joint>
-
-		<link name="imu_link"/>
-
-
 	</xacro:macro>
 </robot>
