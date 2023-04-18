@@ -10,6 +10,7 @@ DOCKER_MOUNT_ARGS="-v ${REPO_DIR}/:/colcon_ws/src"
 xhost +local:root
 
 docker run -it -e DISPLAY -v "/tmp/.X11-unix:/tmp/.X11-unix:rw" \
+	-v /dev/dri:/dev/dri \
 	${DOCKER_MOUNT_ARGS} \
 	--net=host \
 	--gpus all \
