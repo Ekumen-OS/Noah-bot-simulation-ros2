@@ -5,6 +5,7 @@ ARG COLCON_WS=/colcon_ws
 COPY noah_description ${COLCON_WS}/src/noah_description
 COPY noah_gazebo ${COLCON_WS}/src/noah_gazebo
 COPY noah_integration_tests ${COLCON_WS}/src/noah_integration_tests
+COPY noah_navigation ${COLCON_WS}/src/noah_navigation
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
     . /opt/ros/humble/setup.sh && \
