@@ -17,7 +17,7 @@ def generate_launch_description():
     map_dir = LaunchConfiguration(
         "map",
         default=os.path.join(
-            get_package_share_directory("noah_navigation"), "maps", "test.yaml"
+            get_package_share_directory("noah_navigation"), "maps", "small_house.yaml"
         ),
     )
 
