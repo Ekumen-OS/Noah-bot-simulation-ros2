@@ -3,13 +3,5 @@ project(noah_webots)
 
 find_package(ament_cmake REQUIRED)
 
-install(
-  DIRECTORY
-    launch
-    resource
-    worlds
-  DESTINATION
-    share/${PROJECT_NAME}/
-)
 
 ament_package()
