@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>noah_webots</name>
+  <version>0.0.0</version>
+  <description>Noah simulation in webots_ros2</description>
+  <maintainer email="ignacio.davila@ekumen.com">root</maintainer>
+  <license>TODO: License declaration</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclpy</depend>
+  <depend>geometry_msgs</depend>
+  <depend>webots_ros2_driver</depend>
+  <depend>noah_description</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
