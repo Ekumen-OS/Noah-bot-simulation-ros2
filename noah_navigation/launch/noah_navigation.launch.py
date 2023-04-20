@@ -5,7 +5,7 @@ from launch.actions import DeclareLaunchArgument
 from launch.actions import IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch.substitutions import LaunchConfiguration
-from launch_ros.actions import Node
+from launch_ros.actions import Node, SetRemap
 
 
 def generate_launch_description():
@@ -40,6 +40,7 @@ def generate_launch_description():
 
     return LaunchDescription(
         [
+            SetRemap(src="/cmd_vel", dst="/noah/cmd_vel"),
             DeclareLaunchArgument("slam", default_value=use_slam, description="Whether run a SLAM"),
             DeclareLaunchArgument("map", default_value=map_dir, description="Full path to map file to load"),
             DeclareLaunchArgument(
