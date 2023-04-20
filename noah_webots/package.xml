@@ -4,7 +4,7 @@
   <name>noah_webots</name>
   <version>0.0.0</version>
   <description>Noah simulation in webots_ros2</description>
-  <maintainer email="ignacio.davila@ekumen.com">root</maintainer>
+  <maintainer email="ignacio.davila@ekumenlabs.com">root</maintainer>
   <license>TODO: License declaration</license>
 
   <buildtool_depend>ament_cmake</buildtool_depend>
