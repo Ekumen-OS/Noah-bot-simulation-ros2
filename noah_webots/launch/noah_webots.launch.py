@@ -15,7 +15,7 @@ def generate_launch_description():
     # - `world` (str):              Path to the world to launch.
     # - `gui` (bool):               Whether to display GUI or not.
     # - `mode` (str):               Can be `pause`, `realtime`, or `fast`.
-    # - `ros2_supervisor` (bool):   Spawn the `Ros2Supervisor` custom node that communicates with a Supervisor robot in the simulation. The Ros2Supervisor node is a special node interacting with the simulation. For example, it publishes the /clock topic of the simulation or permits to spawn robot from URDF files.
+    # - `ros2_supervisor` (bool):   Spawn the `Ros2Supervisor` custom node that communicates with a Supervisor robot in the simulation.
     webots = WebotsLauncher(
         world=os.path.join(package_dir, 'worlds', 'myWorld.wbt'),
         ros2_supervisor=True

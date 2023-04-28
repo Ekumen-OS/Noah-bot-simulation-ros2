@@ -8,38 +8,18 @@ COPY noah_integration_tests ${COLCON_WS}/src/noah_integration_tests
 COPY noah_webots ${COLCON_WS}/src/noah_webots
 
 # Install Webots
-
-# Dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libxtst6 \
-    python3-pip \
-    python3-tk \
+RUN apt-get update && apt-get install -y \
     software-properties-common \
-    xcb \
-    wget && \
-    rm -rf /var/lib/apt/lists/*
+    wget
 
-# Add key and repository
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    ffmpeg \
-    libssh-dev \
-    libzip-dev \
-    libxerces-c-dev \
-    libfox-1.6-dev \
-    libgdal-dev \
-    libproj-dev \
-    libgl2ps-dev
-
-RUN apt-get update && DEBIAN_FRONTEND=noninteractive apt-get -f install --assume-yes --no-install-recommends xserver-xorg-core
-
-RUN wget https://github.com/cyberbotics/webots/releases/download/R2023a/webots_2023a_amd64.deb
-RUN apt-get install ./webots_2023a_amd64.deb
 RUN wget -qO- https://cyberbotics.com/Cyberbotics.asc | sudo apt-key add -
+
+
 RUN apt-add-repository 'deb https://cyberbotics.com/debian/ binary-amd64/'
 
-
 RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
-    apt-get install -y --no-install-recommends \
+    apt-get install -y \
+    webots \
     ros-humble-webots-ros2
 
 RUN apt-get update && \
