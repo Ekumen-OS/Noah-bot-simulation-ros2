@@ -5,6 +5,23 @@ ARG COLCON_WS=/colcon_ws
 COPY noah_description ${COLCON_WS}/src/noah_description
 COPY noah_gazebo ${COLCON_WS}/src/noah_gazebo
 COPY noah_integration_tests ${COLCON_WS}/src/noah_integration_tests
+COPY noah_webots ${COLCON_WS}/src/noah_webots
+
+# Install Webots
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    wget
+
+RUN wget -qO- https://cyberbotics.com/Cyberbotics.asc | sudo apt-key add -
+
+
+RUN apt-add-repository 'deb https://cyberbotics.com/debian/ binary-amd64/'
+
+RUN apt-get update && DEBIAN_FRONTEND=noninteractive \
+    apt-get install -y \
+    webots \
+    ros-humble-webots-ros2
+
 RUN apt-get update && \
     apt-get -y dist-upgrade && \
     . /opt/ros/humble/setup.sh && \
