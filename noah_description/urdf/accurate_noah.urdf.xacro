@@ -51,37 +51,5 @@
     </xacro:noah_camera>
 
     <!-- *******Gazebo specific******* -->
-
-    <gazebo>
-        <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
-
-            <ros>
-                <namespace>/noah</namespace>
-            </ros>
-
-            <!-- wheels -->
-            <left_joint>left_wheel_joint</left_joint>
-            <right_joint>right_wheel_joint</right_joint>
-
-            <!-- kinematics -->
-            <wheel_separation>1.25</wheel_separation>
-            <wheel_diameter>0.3</wheel_diameter>
-
-            <!-- limits -->
-            <max_wheel_torque>20</max_wheel_torque>
-            <max_wheel_acceleration>1.0</max_wheel_acceleration>
-
-            <!-- output -->
-            <update_rate>20</update_rate>
-            <publish_odom>true</publish_odom>
-            <publish_odom_tf>true</publish_odom_tf>
-
-            <odometry_frame>odom</odometry_frame>
-            <robot_base_frame>base_footprint</robot_base_frame>
-
-            <publish_wheel_tf>true</publish_wheel_tf>
-
-        </plugin>
-    </gazebo>
-
+    <xacro:include filename="$(find noah_description)/urdf/gazebo_description.urdf.xacro" />
 </robot>

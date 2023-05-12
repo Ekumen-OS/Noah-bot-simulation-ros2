@@ -34,11 +34,6 @@
 		</joint>
 
 		<!-- caster gazebo properties -->
-		<gazebo reference="caster_link">
-			<mu1 value="0.0"/>
-			<mu2 value="0.0"/>
-			<material>Gazebo/DarkGrey</material>
-		</gazebo>
 
 	</xacro:macro>
 

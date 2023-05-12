@@ -52,10 +52,6 @@
 
 		</link>
 
-		<gazebo reference="base_generic_link">
-			<material>Gazebo/SkyBlue</material>
-		</gazebo>
-
 		<!-- FRONT************************************************************************** -->
 
 		<xacro:property name="front_depth" value="0.06"/>
@@ -89,9 +85,6 @@
 			<origin xyz="${base_generic_depth/2 - front_depth/2} 0 ${front_heigth/2 + base_generic_heigth/2}" rpy="0 0 0" />
 		</joint>
 
-		<gazebo reference="front_link">
-			<material>Gazebo/SkyBlue</material>
-		</gazebo>
 
 		<!-- CASTER HOLDER************************************************************************** -->
 
@@ -132,10 +125,6 @@
 			<origin xyz="-0.091 0 0" rpy="0 0 0" />
 			<!-- Origin in x adjusted by hand -->
 		</joint>
-
-		<gazebo reference="caster_holder_link">
-			<material>Gazebo/SkyBlue</material>
-		</gazebo>
 
 		<!-- BASE SUPPORTS************************************************************************** -->
 		<!-- Joints x and y coords are adjusted by hand -->
@@ -200,14 +189,6 @@
 			<origin xyz="-0.07847 0.04997 ${base_generic_heigth/2 + base_support_heigth/2}" rpy="0 0 0" />
 		</joint>
 
-		<gazebo reference="left_base_support_link">
-			<material>Gazebo/DarkGrey</material>
-		</gazebo>
-
-		<gazebo reference="right_base_support_link">
-			<material>Gazebo/DarkGrey</material>
-		</gazebo>
-
 		<!-- TOP************************************************************************** -->
 
 		<xacro:property name="top_generic_depth" value="0.19"/>
@@ -242,9 +223,6 @@
 			<origin xyz="0 0 ${base_support_heigth + top_generic_heigth/2 + base_generic_heigth/2}" rpy="0 0 0" />
 		</joint>
 
-		<gazebo reference="top_generic_link">
-			<material>Gazebo/SkyBlue</material>
-		</gazebo>
 
 		<!-- WHEEL ADAPTERS************************************************************************** -->
 
@@ -309,13 +287,6 @@
 			<origin xyz="-${wheel_adapter_radius} -${front_width/2 + wheel_adapter_length/2} 0" rpy="0 0 0" />
 		</joint>
 
-		<gazebo reference="left_wheel_adapter_link">
-			<material>Gazebo/DarkGrey</material>
-		</gazebo>
-
-		<gazebo reference="right_wheel_adapter_link">
-			<material>Gazebo/DarkGrey</material>
-		</gazebo>
 
 		<!-- BATTERIES************************************************************************** -->
 
@@ -351,9 +322,6 @@
 			<origin xyz="-${top_generic_depth/3} 0 ${battery_heigth/2 + top_generic_heigth/2}" rpy="0 0 0" />
 		</joint>
 
-		<gazebo reference="battery_link">
-			<material>Gazebo/Green</material>
-		</gazebo>
 
 		<!-- ELECTRONICS************************************************************************** -->
 
@@ -388,10 +356,6 @@
 			<child link="electronics_link" />
 			<origin xyz="-${electronics_depth/3.5} 0 ${base_generic_heigth/2 + electronics_heigth/2}" rpy="0 0 0" />
 		</joint>
-
-		<gazebo reference="electronics_link">
-			<material>Gazebo/Blue</material>
-		</gazebo>
 
 
 	</xacro:macro>
