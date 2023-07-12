@@ -10,7 +10,7 @@
 
 
     <xacro:property name="M_PI" value="3.14159" />
-
+    <xacro:property name="simulator" value="webots"/>
     <!-- Whole accurate_base_link dimensions -->
     <xacro:property name="base_width" value="0.16426" />
     <xacro:property name="base_depth" value="0.19" />

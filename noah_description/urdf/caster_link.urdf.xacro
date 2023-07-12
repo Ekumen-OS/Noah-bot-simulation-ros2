@@ -5,11 +5,12 @@
 
 		<!-- caster description, simple sphere with no friction (ping pong ball) -->
 		<link name="caster_link">
-
-			<inertial>
-				<mass value="0.003" />
-				<inertia ixx="0.000000968" ixy="0" ixz="0" iyy="0.000000968" iyz="0" izz="0.000000968" />
-			</inertial>
+			<xacro:unless value="${simulator == 'webots'}">
+				<inertial>
+					<mass value="0.003" />
+					<inertia ixx="0.000000968" ixy="0" ixz="0" iyy="0.000000968" iyz="0" izz="0.000000968" />
+				</inertial>
+			</xacro:unless>
 
 			<visual>
 				<origin xyz="0 0 0" rpy="0 0 0" />
