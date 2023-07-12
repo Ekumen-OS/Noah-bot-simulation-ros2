@@ -31,15 +31,28 @@
 import launch
 import os
 import pathlib
+import xacro
 
 from ament_index_python.packages import get_package_share_directory
 from launch_ros.actions import Node
+from webots_ros2_driver.urdf_spawner import URDFSpawner
 from webots_ros2_driver.webots_launcher import WebotsLauncher
 
-# Obtain package
-package_dir = get_package_share_directory('noah_webots')
+# Obtain packages
+curr_pkg_dir = get_package_share_directory('noah_webots')
+noah_pkg_dir = get_package_share_directory('noah_description')
 
 def generate_launch_description():
+
+    noah_xacro_path = os.path.join(noah_pkg_dir, 'urdf', 'accurate_noah.urdf.xacro')
+    noah_description = xacro.process_file(noah_xacro_path).toprettyxml(indent='    ')
+
+    spawn_URDF_noah = URDFSpawner(
+        name='accurate_noah',
+        robot_description=noah_description,
+        translation='0 1 0.022',
+        rotation=' 0 0 1 0',
+    )
 
     # The WebotsLauncher is used to start a Webots instance.
     # Arguments:
@@ -48,7 +61,7 @@ def generate_launch_description():
     # - `mode` (str):               Can be `pause`, `realtime`, or `fast`.
     # - `ros2_supervisor` (bool):   Spawn the `Ros2Supervisor` custom node that communicates with a Supervisor robot in the simulation.
     webots = WebotsLauncher(
-        world=os.path.join(package_dir, 'worlds', 'myWorld.wbt'),
+        world=os.path.join(curr_pkg_dir, 'worlds', 'myWorld.wbt'),
         ros2_supervisor=True
     )
 
@@ -58,6 +71,8 @@ def generate_launch_description():
         webots,
         # Starts the Ros2Supervisor node created with the WebotsLauncher
         webots._supervisor,
+        # Spawn Noah's URDF
+        spawn_URDF_noah,
         # This action will kill all nodes once the Webots simulation has exited
         launch.actions.RegisterEventHandler(
             event_handler=launch.event_handlers.OnProcessExit(
