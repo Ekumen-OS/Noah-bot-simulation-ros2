@@ -12,7 +12,7 @@
 
 		<!-- BASE************************************************************************** -->
 
-        <link name="base_footprint">			
+        <link name="base_footprint">
             <!--
             Dummy inertia-less link to prevent the following error:
             [robot_state_publisher-1] The root link base_generic_link has an inertia specified in the URDF, but KDL does not support a root link with an inertia.
@@ -392,7 +392,5 @@
 		<gazebo reference="electronics_link">
 			<material>Gazebo/Blue</material>
 		</gazebo>
-
-
 	</xacro:macro>
 </robot>

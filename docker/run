@@ -1,6 +1,18 @@
 #!/bin/bash
 # Runs the provided command in a docker container with Noah simulation code and dependencies.
 
+OS_VERSION=jammy
+IMAGE_NAME=docker_humble_noahbot
+CONTAINER_NAME=noah_ws_${OS_VERSION}
+
+# Check if name container is already taken.
+if sudo -g docker docker container ls -a | grep -w "${CONTAINER_NAME}$" -c &> /dev/null; then
+   printf "Error: Docker container called $CONTAINER_NAME is already opened.     \
+   \n\nTry removing the old container by doing: \n\t docker rm $CONTAINER_NAME   \
+   \nor just initialize it with a different name.\n"
+   exit 1
+fi
+
 xhost +local:root
 docker run --rm -it \
 	--name noah_docker_ros2_run \
