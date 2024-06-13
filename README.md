@@ -52,6 +52,12 @@ Summary of of the packages in the repository.
    - Spawn Noah
    - Run rviz2 (optional)
 
+### noah_navigation:
+ - Holds navigation configuration for Slam or to navigate `small_house.world` world.
+ - Launch file for:
+   - Navigation on 'small_house.world'
+   - Slam
+
 
 ## Using docker
 
@@ -142,4 +148,27 @@ Try Teleoperating Noah!
 Once simulation is running, in other terminal run:
 ```sh
 ros2 run  teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=noah/cmd_vel
+```
+
+Try Navigation!
+
+Launch simulation in the 'small house' world:
+```sh
+ros2 launch noah_gazebo noah_gazebo.launch.py world:=small_house.world
+```
+Once simulation is running, in other terminal run:
+```sh
+ros2 launch noah_navigation noah_navigation.launch.py
+```
+
+Try Slam!
+
+Run:
+```sh
+ros2 launch noah_navigation noah_navigation.launch.py slam:=True
+```
+
+To save map:
+```sh
+ros2 run nav2_map_server map_saver_cli -f ~/map
 ```
